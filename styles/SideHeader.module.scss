@@ -1,0 +1,28 @@
+@use "sass:math";
+@import "colors";
+$desk: math.div(100, 1920);
+
+.side_header {
+  display: flex;
+  align-items: center;
+
+  .verticle_hr {
+    width: 34 * $desk + vw;
+    height: 160 * $desk + vw;
+    background-color: $primaryRedClr;
+    margin-right: 70 * $desk + vw;
+  }
+
+  .labels {
+    .label,
+    .next_label {
+      color: $primaryHdrClr;
+      font-size: 75 * $desk + vw;
+      letter-spacing: -1.5px;
+    }
+
+    .next_label {
+      margin-top: -1vw;
+    }
+  }
+}
