@@ -1,11 +1,16 @@
-import React from 'react'
-import Navbar from './Navbar'
+import Head from "next/head";
+import React from "react";
+import Navbar from "./Navbar";
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
   return (
     <div>
-        <Navbar />
-        {children}
+      <Head>
+        <link rel="shortcut icon" href="/public/favicon.ico" />
+        <title>EATIZ</title>
+      </Head>
+      <Navbar />
+      {children}
     </div>
-  )
+  );
 }

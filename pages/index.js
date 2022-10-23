@@ -29,6 +29,10 @@ import { useInView } from "react-intersection-observer";
 export default function Home() {
   const sliderRef = useRef();
   const sloganRef = useRef();
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
   const [ref, inView] = useInView({
     threshold: 0.6,
   });
@@ -119,18 +123,20 @@ export default function Home() {
       }, 500);
     }
 
-    ids("appSection").style.opacity = "0";
-    ids("appInfo").style.opacity = "0";
-    ids("mobile").style.opacity = "0";
+    if (windowSize.width > 600) {
+      ids("appSection").style.opacity = "0";
+      ids("appInfo").style.opacity = "0";
+      ids("mobile").style.opacity = "0";
 
-    if (inView3) {
-      ids("appSection").classList.add("fadeInLeft");
+      if (inView3) {
+        ids("appSection").classList.add("fadeInLeft");
 
-      setTimeout(() => {
-        ids("appInfo").classList.add("fadeInDown");
-        ids("mobile").style.opacity = "1";
-        ids("mobile").classList.add("fadeInRight");
-      }, 500);
+        setTimeout(() => {
+          ids("appInfo").classList.add("fadeInDown");
+          ids("mobile").style.opacity = "1";
+          ids("mobile").classList.add("fadeInRight");
+        }, 500);
+      }
     }
 
     if (inView4) {
@@ -145,6 +151,11 @@ export default function Home() {
   }, [inView, inView1, inView2, inView3, inView4]);
 
   useEffect(() => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+
     const onScroll = (e) => {
       let scrollValue = e.target.documentElement.scrollTop;
       if (scrollValue > 0) {
@@ -193,7 +204,9 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.slider_dots}>
+            {/* {typeof window !== "undefined" && window.innerWidth >= 600 && ( */}
             <Image src={SliderDots} width={380} height={822} />
+            {/* )} */}
           </div>
         </div>
 
@@ -288,7 +301,7 @@ export default function Home() {
             ref={ref1}
           >
             <div className={styles.delivery_wrapper}>
-              <p className={styles.delivery_icon}>{Delivery()} </p>
+              <div className={styles.delivery_icon}>{Delivery()} </div>
               <p
                 className={`${styles._header} ${styles.rightcard_header}`}
                 id="deliveryInfo"
@@ -306,8 +319,15 @@ export default function Home() {
       </div>
       <div className={styles.bottom_wrapper}>
         <div className={styles.bottom_left_wrapper}>
-          <div ref={ref3} id="appSection">
-            <SideHeader label="Download app for" next_label="Exciting Deals" />
+          <div ref={ref3} id="appSection" className={styles.side_header}>
+            {typeof window !== "undefined" && windowSize.width > 600 ? (
+              <SideHeader
+                label="Download app for"
+                next_label="Exciting Deals"
+              />
+            ) : (
+              <SideHeader label="Download app for exciting deals" />
+            )}
           </div>
           <p className={styles.app_intro} ref={ref3} id="appInfo">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -319,7 +339,9 @@ export default function Home() {
               ref={ref4}
               id="playStoreBtn"
             >
-              <Image src={googlePlayBadge} />
+              <div className={styles.pl_badge}>
+                <Image src={googlePlayBadge} width={240} height={112} />
+              </div>
             </a>
             <a
               target="_blank"
@@ -327,7 +349,7 @@ export default function Home() {
               ref={ref4}
               id="appStoreBtn"
             >
-              {AppleBadge()}
+              <div className={styles.app_badge}>{AppleBadge()}</div>
             </a>
           </div>
         </div>

@@ -4,7 +4,6 @@ $desk: math.div(100, 1920);
 
 .navbar_wrapper {
   padding: 24.7 * $desk + vw 150 * $desk + vw 24.7*$desk+vw 173 * $desk + vw;
-  //   background-color: $primaryBg;
   font-family: poppins;
   width: 100%;
   position: fixed;
@@ -13,10 +12,16 @@ $desk: math.div(100, 1920);
   z-index: 2;
   transition: 0.4s;
 
+  
+
   .navbar_content {
     width: 1610 * $desk + vw;
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: 600px){
+    display: inline-block;
+    }
 
     .logo {
       width: 154 * $desk + vw;
@@ -26,6 +31,11 @@ $desk: math.div(100, 1920);
     .links {
       color: $primaryHdrClr;
       margin-left: 151 * $desk + vw;
+
+      @media only screen and (max-width: 600px) {
+          display: inline-grid;
+          margin-left: 0;
+        }
 
       .menu_label {
         margin-right: 79.9 * $desk + vw;
@@ -70,6 +80,11 @@ $desk: math.div(100, 1920);
       margin-left: 604.3 * $desk + vw;
       cursor: pointer;
       position: relative;
+
+      @media only screen and (max-width: 600px) {
+          display: inline-block;
+          margin-left: 0;
+        }
 
       .profile {
         width: 50 * $desk + vw;

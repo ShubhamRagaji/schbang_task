@@ -1,14 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ActiveStatus, Arrow, Logo, UserProfile } from "../images/Images";
 import styles from "../styles/navbar.module.scss";
 
 export default function Navbar() {
   const [dropdownList, setdropdownList] = useState(false);
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }, []);
 
   return (
     <div className={styles.navbar_wrapper} id="navbarWrapper">
+      {/* {windowSize.width > 600 && } */}
       <div className={styles.navbar_content}>
         <div className={styles.logo}>{Logo()}</div>
         <div className={styles.links}>
@@ -33,8 +45,10 @@ export default function Navbar() {
             {UserProfile()}
             <span className={styles.status}>{ActiveStatus()}</span>
           </p>
-            
-          <p className={styles.dropdown_label} id="user" >User</p>
+
+          <p className={styles.dropdown_label} id="user">
+            User
+          </p>
           <p
             className={
               dropdownList

@@ -12,3 +12,4 @@ export default function SideHeader({ label, next_label }) {
     </div>
   );
 }
+  

@@ -16,6 +16,10 @@ $desk: math.div(100, 1920);
     align-items: center;
     padding: 0 * $desk + vw 0 0 * $desk + vw 157 * $desk + vw;
 
+    // @media only screen and (max-width: 600px){
+    //   display: block;
+    // }
+
     .slider_leftwrapper {
       width: 1406 * $desk + vw;
       display: flex;
@@ -177,11 +181,24 @@ $desk: math.div(100, 1920);
       align-items: center;
       margin: 0 175 * $desk + vw 0 145 * $desk + vw;
 
+      @media only screen and (max-width: 600px) {
+        display: inline-block;
+        width: 100%;
+        padding: 0 6vw;
+        margin: 0;
+      }
+
       .intro {
         width: 795 * $desk + vw;
         color: $primaryInfoClr;
         font-size: 30 * $desk + vw;
         font-family: segoiui;
+
+        @media only screen and (max-width: 600px) {
+          font-size: 88 * $desk + vw;
+          width: 100%;
+          text-align: center;
+        }
       }
     }
 
@@ -193,17 +210,35 @@ $desk: math.div(100, 1920);
       display: flex;
       align-items: center;
 
+      @media only screen and (max-width: 600px) {
+        display: block;
+        width: 100%;
+        padding: 0 6vw;
+      }
+
       ._header {
         color: $primaryHdrClr;
         font-size: 38 * $desk + vw;
         letter-spacing: -0.76px;
         line-height: 2.4vw;
+
+        @media only screen and (max-width: 600px) {
+          font-size: 90 * $desk + vw;
+          padding-bottom: 30 * $desk + vw;
+          text-align: center;
+          line-height: 6vw;
+        }
       }
 
       ._subinfo {
         color: $primaryInfoClr;
         font-size: 30 * $desk + vw;
         font-family: segoiui;
+
+        @media only screen and (max-width: 600px) {
+          font-size: 80 * $desk + vw;
+          text-align: center;
+        }
       }
 
       .services_leftwrapper {
@@ -223,9 +258,18 @@ $desk: math.div(100, 1920);
               background-color: $primaryLightRedClr;
               position: relative;
 
+              @media only screen and (max-width: 600px) {
+                width: 800 * $desk + vw;
+                height: 800 * $desk + vw;
+              }
+
               .booking_image {
-                width: 164 * $desk + vw;
+                width: 378 * $desk + vw;
                 height: 193 * $desk + vw;
+
+                @media only screen and (max-width: 600px) {
+                  height: 100%;
+                }
               }
 
               .card_arrow {
@@ -234,6 +278,10 @@ $desk: math.div(100, 1920);
                 transform: translateY(-50%);
                 right: -5vw;
                 width: 143 * $desk + vw;
+
+                @media only screen and (max-width: 600px) {
+                  width: 200 * $desk + vw;
+                }
               }
             }
 
@@ -242,20 +290,36 @@ $desk: math.div(100, 1920);
               margin-left: 127 * $desk + vw;
               position: relative;
 
+              @media only screen and (max-width: 600px) {
+                width: 800 * $desk + vw;
+              }
+
               .serv_hr {
                 width: 83 * $desk + vw;
                 height: 4 * $desk + vw;
                 position: absolute;
                 right: 2%;
                 top: 30%;
+
+                @media only screen and (max-width: 600px) {
+                  display: none;
+                }
               }
             }
           }
 
           .food_free_wrapper {
+            @media only screen and (max-width: 600px) {
+              margin: 10 * $desk + vw 0 60 * $desk + vw 0;
+            }
+
             ._info {
               margin: 0 159 * $desk + vw 0 0 * $desk + vw;
               width: 345 * $desk + vw;
+
+              @media only screen and (max-width: 600px) {
+                width: 740 * $desk + vw;
+              }
 
               .booking_image {
                 width: 190 * $desk + vw;
@@ -271,12 +335,22 @@ $desk: math.div(100, 1920);
                   width: 146 * $desk + vw;
                   height: 4 * $desk + vw;
                   margin-bottom: 1.8vw;
+
+                  @media only screen and (max-width: 600px) {
+                    display: none;
+                  }
                 }
 
                 .time {
                   color: $primaryHdrClr;
                   font-size: 38 * $desk + vw;
                   padding-right: 60 * $desk + vw;
+
+                  @media only screen and (max-width: 600px) {
+                    width: 100%;
+                    font-size: 80 * $desk + vw;
+                    text-align: center;
+                  }
                 }
               }
             }
@@ -300,16 +374,37 @@ $desk: math.div(100, 1920);
         margin-left: 67 * $desk + vw;
         text-align: center;
 
+        @media only screen and (max-width: 600px) {
+          width: 100%;
+          height: 1400 * $desk + vw;
+          margin: 0;
+          display: inline-block;
+        }
+
         .delivery_wrapper {
           .delivery_icon {
-            width: 273 * $desk + vw;
+            width: 400 * $desk + vw;
             height: 206 * $desk + vw;
             margin-bottom: 51 * $desk + vw;
             margin-left: 40 * $desk + vw;
+
+            @media only screen and (max-width: 600px) {
+              width: 600 * $desk + vw;
+              height: 380 * $desk + vw;
+              display: block;
+              margin: auto;
+              margin-top: 40 * $desk + vw;
+            }
           }
 
           .rightcard_header {
             width: 360 * $desk + vw;
+
+            @media only screen and (max-width: 600px) {
+              width: 100%;
+              text-align: center;
+              padding: 100 * $desk + vw 0;
+            }
           }
 
           .delivery_hr {
@@ -329,6 +424,11 @@ $desk: math.div(100, 1920);
     padding: 0 * $desk + vw 161 * $desk + vw 0 * $desk + vw 145 * $desk + vw;
     background-color: $primaryLightRedClr;
 
+    @media only screen and (max-width: 600px) {
+      display: inline-block;
+      padding-top: 100 * $desk + vw;
+    }
+
     .bottom_left_wrapper {
       .app_intro {
         color: $primaryInfoClr;
@@ -336,12 +436,24 @@ $desk: math.div(100, 1920);
         font-family: segoiui;
         width: 560 * $desk + vw;
         padding-left: 110 * $desk + vw;
+
+        @media only screen and (max-width: 600px) {
+          width: 100%;
+          text-align: center;
+          font-size: 80 * $desk + vw;
+        }
       }
 
       .store_btns {
         display: flex;
         align-items: center;
         margin: 40 * $desk + vw 0 0 100 * $desk + vw;
+
+        @media only screen and (max-width: 600px) {
+          width: 100%;
+          display: inline-block;
+          margin: 80 * $desk + vw 0 0 0;
+        }
 
         .play_badge,
         .apple_badge {
@@ -356,9 +468,25 @@ $desk: math.div(100, 1920);
           }
         }
 
+        .pl_badge {
+          @media only screen and (max-width: 600px) {
+            width: 1000 * $desk + vw;
+            display: block;
+            margin: auto;
+          }
+        }
+
         .apple_badge {
           height: 62 * $desk + vw;
           margin-top: 20 * $desk + vw;
+
+          @media only screen and (max-width: 600px) {
+            .app_badge {
+              width: 900 * $desk + vw;
+              display: block;
+              margin: auto;
+            }
+          }
         }
 
         .play_badge:hover,
@@ -383,6 +511,10 @@ $desk: math.div(100, 1920);
 
     .bottom_right_wrapper {
       user-select: none;
+
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
     }
   }
 }
