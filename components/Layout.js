@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <Head>
-        <link rel="shortcut icon" href="/public/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <title>EATIZ</title>
       </Head>
       <Navbar />

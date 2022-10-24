@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ActiveStatus, Arrow, Logo, UserProfile } from "../images/Images";
 import styles from "../styles/navbar.module.scss";
 import menu from "../assets/menu.png";
+import cross from "../assets/cross.png";
 
 export default function Navbar() {
   const [windowSize, setWindowSize] = useState({
@@ -42,7 +43,11 @@ export default function Navbar() {
       {windowSize.width <= 600 ? (
         <div className={styles.menu_wrapper}>
           <dev className={styles.menu} onClick={toggleMenu}>
-            <Image src={menu} width={26} height={26} />
+            {!hamMenu ? (
+              <Image src={menu} width={26} height={26} alt="menu" />
+            ) : (
+              <Image src={cross} width={26} height={26} alt="cross" />
+            )}
           </dev>
           <div className={styles.logo}>{Logo()}</div>
 
@@ -58,8 +63,10 @@ export default function Navbar() {
       ) : (
         <div className={styles.navbar_content_wrapper}>
           <div className={styles.logo}>{Logo()}</div>
-          <NavbarContent   setdropdownList={setdropdownList}
-                dropdownList={dropdownList} />
+          <NavbarContent
+            setdropdownList={setdropdownList}
+            dropdownList={dropdownList}
+          />
         </div>
       )}
     </div>

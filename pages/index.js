@@ -59,7 +59,7 @@ export default function Home() {
     autoplay: true,
     arrows: false,
     speed: 1000,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 500000000,
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (current, next) => {
@@ -102,12 +102,12 @@ export default function Home() {
       setTimeout(() => {
         ids("bookingSubInfo").classList.add("fadeInDown");
       }, 200);
-
-      ids("freeFoodCard").style.opacity = "0";
-      ids("freeFoodInfo").style.opacity = "0";
-      ids("deliveryInfo").style.opacity = "0";
-      ids("deliverySubInfo").style.opacity = "0";
     }
+
+    ids("freeFoodCard").style.opacity = "0";
+    ids("freeFoodInfo").style.opacity = "0";
+    ids("deliveryInfo").style.opacity = "0";
+    ids("deliverySubInfo").style.opacity = "0";
 
     if (inView2) {
       ids("freeFoodInfo").classList.add("fadeInLeft");
@@ -207,7 +207,7 @@ export default function Home() {
             </div>
             <div className={styles.slider_dots}>
               {typeof window !== "undefined" && window.innerWidth >= 600 && (
-                <Image src={SliderDots} width={380} height={822} />
+                <Image src={SliderDots} width={380} height={822} alt="dots" />
               )}
             </div>
           </div>
@@ -215,12 +215,27 @@ export default function Home() {
           <div className={styles.slider_rightwrapper}>
             <div className={`${styles.main_slider} fadeIn`}>
               <Slider {...settings} ref={sloganRef}>
-                <Image src={foodPlate} width={922} height={1145} />
+                <Image
+                  src={foodPlate}
+                  width={922}
+                  height={1145}
+                  alt="foodPlate"
+                />
                 <div className={styles.food_plate2}>
-                  <Image src={foodPlate2} width={650} height={850} />
+                  <Image
+                    src={foodPlate2}
+                    width={650}
+                    height={850}
+                    alt="foodPlate"
+                  />
                 </div>
                 <div className={styles.food_plate3}>
-                  <Image src={foodPlate3} width={660} height={660} />
+                  <Image
+                    src={foodPlate3}
+                    width={660}
+                    height={660}
+                    alt="foodPlate"
+                  />
                 </div>
               </Slider>
             </div>
@@ -230,14 +245,14 @@ export default function Home() {
                 className={styles.prev_arrow}
                 onClick={() => sliderRef.current.slickPrev()}
               >
-                <Image src={sliderArrow} width={75} height={46} />
+                <Image src={sliderArrow} width={75} height={46} alt="arrow" />
               </div>
 
               <div
                 className={styles.next_arrow}
                 onClick={() => sliderRef.current.slickNext()}
               >
-                <Image src={sliderArrow} width={75} height={46} />
+                <Image src={sliderArrow} width={75} height={46} alt="arrow" />
               </div>
             </div>
           </div>
@@ -262,21 +277,36 @@ export default function Home() {
             <Slider {...settings} ref={sliderRef}>
               <div className={styles.slide1}>
                 <div className={styles.plate1}>
-                  <Image src={foodPlate} width={922} height={1145} />
+                  <Image
+                    src={foodPlate}
+                    width={922}
+                    height={1145}
+                    alt="foodPlate"
+                  />
                 </div>
                 <p className={styles.slider_sublabel}>
                   Discover Restaurant &#38; Delicious Food
                 </p>
               </div>
               <div className={styles.slide2}>
-                <Image src={foodPlate2} width={500} height={650} />
+                <Image
+                  src={foodPlate2}
+                  width={500}
+                  height={650}
+                  alt="foodPlate"
+                />
                 <p className={styles.slider_sublabel}>
                   We Are Always Here To Serve You.
                 </p>
               </div>
               <div className={styles.slide3}>
                 <div className={styles.plate3}>
-                  <Image src={foodPlate3} width={600} height={600} />
+                  <Image
+                    src={foodPlate3}
+                    width={600}
+                    height={600}
+                    alt="foodPlate"
+                  />
                 </div>
                 <p className={styles.slider_sublabel3}>
                   Hundreds Of Flavors Under One Roof.
@@ -335,7 +365,9 @@ export default function Home() {
                 </div>
 
                 <div className={styles.card_image} id="freeFoodCard" ref={ref2}>
-                  <p className={styles.booking_image}>{FreeFood()} </p>
+                  <p className={`${styles.booking_image} ${styles.free_food}`}>
+                    {FreeFood()}{" "}
+                  </p>
                   <p className={styles.card_arrow}>{ServiceArrow()} </p>
                 </div>
               </div>
@@ -386,7 +418,12 @@ export default function Home() {
               id="playStoreBtn"
             >
               <div className={styles.pl_badge}>
-                <Image src={googlePlayBadge} width={240} height={112} />
+                <Image
+                  src={googlePlayBadge}
+                  width={240}
+                  height={112}
+                  alt="badge"
+                />
               </div>
             </a>
             <a
@@ -400,7 +437,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.bottom_right_wrapper} ref={ref3} id="mobile">
-          <Image src={mobile} width={652} height={900} />
+          <Image src={mobile} width={652} height={900} alt="mobile" />
         </div>
       </div>
     </div>

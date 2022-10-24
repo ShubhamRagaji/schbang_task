@@ -167,7 +167,7 @@ $desk: math.div(100, 1920);
   }
 
   .middle_wrapper {
-    padding: 190 * $desk + vw 0 * $desk + vw 205 * $desk + vw 0 * $desk + vw;
+    padding: 188 * $desk + vw 0 * $desk + vw 114 * $desk + vw 0 * $desk + vw;
 
     .left_header {
       width: 1449 * $desk + vw;
@@ -241,6 +241,12 @@ $desk: math.div(100, 1920);
         align-items: center;
 
         .image_info_wrapper {
+
+          @media only screen and (max-width: 600px) {
+            display: flex;
+            flex-direction: column-reverse;
+            }
+
           .wrappers {
             display: flex;
             align-items: center;
@@ -259,11 +265,22 @@ $desk: math.div(100, 1920);
               }
 
               .booking_image {
-                width: 378 * $desk + vw;
+                width: 164 * $desk + vw;
                 height: 193 * $desk + vw;
 
                 @media only screen and (max-width: 600px) {
-                  height: 100%;
+                  width: 400 * $desk + vw;
+                  height: 400 * $desk + vw;
+                }
+              }
+
+              .free_food {
+                width: 190 * $desk + vw;
+                height: 190 * $desk + vw;
+
+                @media only screen and (max-width: 600px) {
+                  width: 400 * $desk + vw;
+                  height: 400 * $desk + vw;
                 }
               }
 
@@ -372,7 +389,7 @@ $desk: math.div(100, 1920);
         @media only screen and (max-width: 600px) {
           width: 100%;
           height: 1400 * $desk + vw;
-          margin: 0;
+          margin: 80*$desk+vw 0 0 0 ;
           display: inline-block;
         }
 
@@ -381,7 +398,6 @@ $desk: math.div(100, 1920);
             width: 400 * $desk + vw;
             height: 206 * $desk + vw;
             margin-bottom: 51 * $desk + vw;
-            margin-left: 40 * $desk + vw;
 
             @media only screen and (max-width: 600px) {
               width: 600 * $desk + vw;
@@ -393,8 +409,6 @@ $desk: math.div(100, 1920);
           }
 
           .rightcard_header {
-            width: 360 * $desk + vw;
-
             @media only screen and (max-width: 600px) {
               width: 100%;
               text-align: center;
@@ -473,7 +487,7 @@ $desk: math.div(100, 1920);
 
         .apple_badge {
           height: 62 * $desk + vw;
-          margin-top: 20 * $desk + vw;
+          margin: 20 * $desk + vw 0 0 40 * $desk + vw;
 
           @media only screen and (max-width: 600px) {
             .app_badge {
@@ -569,11 +583,14 @@ $desk: math.div(100, 1920);
         .slider_sublabel,
         .slider_sublabel3 {
           color: $primaryWhtClr;
-          margin-top: -4vw;
+
+          @media only screen and (max-width: 600px) {
+            font-size: 80 * $desk + vw;
+          }
         }
 
         .slider_sublabel3 {
-          margin-top: 10.8vw;
+          margin-top: 14vw;
         }
       }
 
@@ -595,7 +612,7 @@ $desk: math.div(100, 1920);
       background-color: $primaryLightRedClr;
       width: 600 * $desk + vw;
       position: absolute;
-      top: 116vw;
+      top: 120vw;
 
       .loc_icon {
         width: 36 * $desk + vw;

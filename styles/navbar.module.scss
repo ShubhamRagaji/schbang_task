@@ -147,12 +147,18 @@ $desk: math.div(100, 1920);
             right: 8%;
             width: 12 * $desk + vw;
             height: 12 * $desk + vw;
+
+            @media only screen and (max-width: 600px) {
+                width: 46 * $desk + vw;
+                height: 46 * $desk + vw;
+              }
           }
         }
 
         .dropdown_label {
           font-size: 16 * $desk + vw;
           color: $primaryWhtClr;
+          user-select: none;
 
           @media only screen and (max-width: 600px) {
             font-size: 60 * $desk + vw;
@@ -168,6 +174,7 @@ $desk: math.div(100, 1920);
 
           @media only screen and (max-width: 600px) {
             width: 60 * $desk + vw;
+            filter: unset !important;
           }
         }
 
