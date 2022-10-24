@@ -1,19 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ActiveStatus, Arrow, Logo, UserProfile } from "../images/Images";
 import styles from "../styles/navbar.module.scss";
 import menu from "../assets/menu.png";
 import cross from "../assets/cross.png";
+import useClickOutside from "../helper/useClickOutside";
 
 export default function Navbar() {
+  const [hamMenu, sethamMenu] = useState(false);
+  const ref = useRef();
+
+  const close = useCallback(() => {
+    sethamMenu(false);
+    setdropdownList(false);
+    windowSize.width <= 600 && hamMenu && toggleMenu();
+  }, [hamMenu]);
+
+  useClickOutside(ref, close);
+
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
   });
-  const [hamMenu, sethamMenu] = useState(false);
-  const [dropdownList, setdropdownList] = useState(false);
 
+  const [dropdownList, setdropdownList] = useState(false);
+  console.log(hamMenu);
   useEffect(() => {
     setWindowSize({
       width: window.innerWidth,
@@ -30,19 +42,25 @@ export default function Navbar() {
       document.getElementById("hamMenu").style.opacity = "1";
       document.getElementById("mobSearch").style.zIndex = "1";
       document.getElementById("hamMenu").classList.add("fadeInLeft");
+      document.getElementById("hamMenu").style.pointerEvents = "auto";
+      document.getElementById("menu").style.marginLeft = "54vw";
+      document.getElementById("menu").style.filter = "invert(1)";
     } else {
       document.getElementById("hamMenu").classList.remove("fadeInLeft");
       document.getElementById("hamMenu").style.opacity = "0";
       document.getElementById("mobSearch").style.zIndex = "6";
+      document.getElementById("hamMenu").style.pointerEvents = "none";
       document.getElementById("hamMenu").classList.add("fadeOutLeft");
+      document.getElementById("menu").style.marginLeft = "0";
+      document.getElementById("menu").style.filter = "invert(0)";
     }
   };
 
   return (
-    <div className={styles.navbar_wrapper} id="navbarWrapper">
+    <div className={styles.navbar_wrapper} id="navbarWrapper" ref={ref}>
       {windowSize.width <= 600 ? (
         <div className={styles.menu_wrapper}>
-          <dev className={styles.menu} onClick={toggleMenu}>
+          <dev className={styles.menu} onClick={toggleMenu} id="menu">
             {!hamMenu ? (
               <Image src={menu} width={26} height={26} alt="menu" />
             ) : (
@@ -54,8 +72,10 @@ export default function Navbar() {
           <div className={styles.hamMenu} id="hamMenu">
             <div className={styles.navbar_content_wrapper}>
               <NavbarContent
+                sethamMenu={sethamMenu}
                 setdropdownList={setdropdownList}
                 dropdownList={dropdownList}
+                toggleMenu={toggleMenu}
               />
             </div>
           </div>
@@ -73,9 +93,20 @@ export default function Navbar() {
   );
 }
 
-export const NavbarContent = ({ dropdownList, setdropdownList }) => {
+export const NavbarContent = ({
+  dropdownList,
+  setdropdownList,
+  sethamMenu,
+  toggleMenu,
+}) => {
   return (
-    <div className={styles.navbar_content}>
+    <div
+      className={styles.navbar_content}
+      onClick={() => {
+        sethamMenu(false);
+        toggleMenu();
+      }}
+    >
       <div className={styles.links}>
         <Link href="">
           <a className={styles.menu_label}>Menu One</a>
@@ -92,7 +123,10 @@ export const NavbarContent = ({ dropdownList, setdropdownList }) => {
       </div>
       <div
         className={styles.user_dropdown}
-        onClick={() => setdropdownList(!dropdownList)}
+        onClick={(e) => {
+          setdropdownList(!dropdownList);
+          e.stopPropagation();
+        }}
       >
         <p className={styles.profile}>
           {UserProfile()}

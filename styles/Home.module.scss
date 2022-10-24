@@ -479,7 +479,7 @@ $desk: math.div(100, 1920);
 
         .pl_badge {
           @media only screen and (max-width: 600px) {
-            width: 1000 * $desk + vw;
+            width: 980 * $desk + vw;
             display: block;
             margin: auto;
           }
