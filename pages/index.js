@@ -168,27 +168,83 @@ export default function Home() {
         ids("user").style.color = "#ffffff";
       }
     };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <div className={styles.home_wrapper}>
-      <div className={styles.slider}>
-        <div className={styles.slider_leftwrapper}>
-          <div className={styles.sublabel_search}>
-            <h4 className={styles.slider_mainlabel}>Food</h4>
-            <Slider {...sloganSettings} ref={sliderRef}>
-              <p className={styles.sublabel}>
-                Discover Restaurant &#38; Delicious Food
-              </p>
-              <p className={styles.sublabel}>
-                We are always here to serve you.
-              </p>
-              <p className={styles.sublabel}>
-                Hundreds of flavors under one roof.
-              </p>
-            </Slider>
+      {windowSize.width > 600 ? (
+        <div className={styles.slider}>
+          <div className={styles.slider_leftwrapper}>
+            <div className={styles.sublabel_search}>
+              <h4 className={styles.slider_mainlabel}>Food</h4>
+              <Slider {...sloganSettings} ref={sliderRef}>
+                <p className={styles.sublabel}>
+                  Discover Restaurant &#38; Delicious Food
+                </p>
+                <p className={styles.sublabel}>
+                  We Are Always Here To Serve You.
+                </p>
+                <p className={styles.sublabel}>
+                  Hundreds Of Flavors Under One Roof.
+                </p>
+              </Slider>
+              <div className={`${styles.search_wrapper} fadeInDown`}>
+                <input
+                  type="text"
+                  className={styles.search_input}
+                  placeholder="Search restaurant / food"
+                />
+                <button className={styles.go_btn}>GO</button>
+              </div>
+
+              <div className={styles.location_wrapper}>
+                <p className={styles.loc_icon}>{Location()}</p>
+                <p className={styles.loc_name}>Hyderabad</p>
+              </div>
+            </div>
+            <div className={styles.slider_dots}>
+              {typeof window !== "undefined" && window.innerWidth >= 600 && (
+                <Image src={SliderDots} width={380} height={822} />
+              )}
+            </div>
+          </div>
+
+          <div className={styles.slider_rightwrapper}>
+            <div className={`${styles.main_slider} fadeIn`}>
+              <Slider {...settings} ref={sloganRef}>
+                <Image src={foodPlate} width={922} height={1145} />
+                <div className={styles.food_plate2}>
+                  <Image src={foodPlate2} width={650} height={850} />
+                </div>
+                <div className={styles.food_plate3}>
+                  <Image src={foodPlate3} width={660} height={660} />
+                </div>
+              </Slider>
+            </div>
+
+            <div className={styles.prev_next_arrow}>
+              <div
+                className={styles.prev_arrow}
+                onClick={() => sliderRef.current.slickPrev()}
+              >
+                <Image src={sliderArrow} width={75} height={46} />
+              </div>
+
+              <div
+                className={styles.next_arrow}
+                onClick={() => sliderRef.current.slickNext()}
+              >
+                <Image src={sliderArrow} width={75} height={46} />
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.mob_slider_wrapper}>
+          <div className={styles.mob_search} id="mobSearch">
             <div className={`${styles.search_wrapper} fadeInDown`}>
               <input
                 type="text"
@@ -197,49 +253,39 @@ export default function Home() {
               />
               <button className={styles.go_btn}>GO</button>
             </div>
-
-            <div className={styles.location_wrapper}>
-              <p className={styles.loc_icon}>{Location()}</p>
-              <p className={styles.loc_name}>Hyderabad</p>
-            </div>
           </div>
-          <div className={styles.slider_dots}>
-            {/* {typeof window !== "undefined" && window.innerWidth >= 600 && ( */}
-            <Image src={SliderDots} width={380} height={822} />
-            {/* )} */}
+          <div className={styles.location_wrapper}>
+            <p className={styles.loc_icon}>{Location()}</p>
+            <p className={styles.loc_name}>Hyderabad</p>
           </div>
-        </div>
-
-        <div className={styles.slider_rightwrapper}>
-          <div className={`${styles.main_slider} fadeIn`}>
-            <Slider {...settings} ref={sloganRef}>
-              <Image src={foodPlate} width={922} height={1145} />
-              <div className={styles.food_plate2}>
-                <Image src={foodPlate2} width={650} height={850} />
+          <div className={styles.mob_slider}>
+            <Slider {...settings} ref={sliderRef}>
+              <div className={styles.slide1}>
+                <div className={styles.plate1}>
+                  <Image src={foodPlate} width={922} height={1145} />
+                </div>
+                <p className={styles.slider_sublabel}>
+                  Discover Restaurant &#38; Delicious Food
+                </p>
               </div>
-              <div className={styles.food_plate3}>
-                <Image src={foodPlate3} width={660} height={660} />
+              <div className={styles.slide2}>
+                <Image src={foodPlate2} width={500} height={650} />
+                <p className={styles.slider_sublabel}>
+                  We Are Always Here To Serve You.
+                </p>
+              </div>
+              <div className={styles.slide3}>
+                <div className={styles.plate3}>
+                  <Image src={foodPlate3} width={600} height={600} />
+                </div>
+                <p className={styles.slider_sublabel3}>
+                  Hundreds Of Flavors Under One Roof.
+                </p>
               </div>
             </Slider>
           </div>
-
-          <div className={styles.prev_next_arrow}>
-            <div
-              className={styles.prev_arrow}
-              onClick={() => sliderRef.current.slickPrev()}
-            >
-              <Image src={sliderArrow} width={75} height={46} />
-            </div>
-
-            <div
-              className={styles.next_arrow}
-              onClick={() => sliderRef.current.slickNext()}
-            >
-              <Image src={sliderArrow} width={75} height={46} />
-            </div>
-          </div>
         </div>
-      </div>
+      )}
       <div className={styles.middle_wrapper} id="middleWrapper">
         <div className={styles.left_header}>
           <div ref={ref} id="sideHeader">

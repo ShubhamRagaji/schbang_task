@@ -3,162 +3,232 @@
 $desk: math.div(100, 1920);
 
 .navbar_wrapper {
-  padding: 24.7 * $desk + vw 150 * $desk + vw 24.7*$desk+vw 173 * $desk + vw;
+  padding: 24.7 * $desk + vw 150 * $desk + vw 24.7 * $desk + vw 173 * $desk + vw;
   font-family: poppins;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 6;
   transition: 0.4s;
 
-  
+  @media only screen and (max-width: 600px) {
+    background-color: $primaryLightRedClr !important;
+  }
 
-  .navbar_content {
-    width: 1610 * $desk + vw;
+  .menu_wrapper {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    @media only screen and (max-width: 600px){
-    display: inline-block;
+    .logo {
+      width: 400 * $desk + vw;
     }
+
+    .menu {
+      z-index: 1;
+      margin-top: 0.8vw;
+    }
+
+    .hamMenu {
+      background-color: #000000;
+      width: 40%;
+      position: absolute;
+      top: 80%;
+      border-radius: 10px;
+      text-align: center;
+      padding: 4vw 0 4vw 0;
+      opacity: 0;
+    }
+  }
+
+  .navbar_content_wrapper {
+    display: flex;
+    align-items: center;
 
     .logo {
       width: 154 * $desk + vw;
       height: 51 * $desk + vw;
     }
 
-    .links {
-      color: $primaryHdrClr;
-      margin-left: 151 * $desk + vw;
+    .navbar_content {
+      width: 1610 * $desk + vw;
+      display: flex;
+      align-items: center;
 
       @media only screen and (max-width: 600px) {
+        display: inline;
+      }
+
+      .links {
+        color: $primaryHdrClr;
+        margin-left: 151 * $desk + vw;
+        width: 31vw;
+
+        @media only screen and (max-width: 600px) {
           display: inline-grid;
           margin-left: 0;
         }
 
-      .menu_label {
-        margin-right: 79.9 * $desk + vw;
-        font-size: 16 * $desk + vw;
-        color: $primaryHdrClr;
-        display: inline-block;
-        position: relative;
-        transition: 0.25s;
-      }
-
-      .menu_label:last-child {
-        margin-right: 0;
-      }
-
-      .menu_label:hover {
-        color: $primaryRedClr;
-      }
-
-      .menu_label::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: $primaryRedClr;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-      }
-      .menu_label:hover::after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-    }
-
-    .user_dropdown {
-      width: 123 * $desk + vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-left: 604.3 * $desk + vw;
-      cursor: pointer;
-      position: relative;
-
-      @media only screen and (max-width: 600px) {
-          display: inline-block;
-          margin-left: 0;
-        }
-
-      .profile {
-        width: 50 * $desk + vw;
-        height: 50 * $desk + vw;
-        position: relative;
-
-        .status {
-          position: absolute;
-          top: -16%;
-          right: 8%;
-          width: 12 * $desk + vw;
-          height: 12 * $desk + vw;
-        }
-      }
-
-      .dropdown_label {
-        font-size: 16 * $desk + vw;
-        color: $primaryWhtClr;
-      }
-
-      .dropdown_arrow {
-        width: 8 * $desk + vw;
-        object-fit: contain;
-        padding-bottom: 6 * $desk + vw;
-        transition: 0.4s;
-      }
-
-      .rotate_arrow {
-        transform: rotate(180deg);
-        transition: 0.4s;
-      }
-
-      .dropdown_list {
-        position: absolute;
-        top: 54 * $desk + vw;
-        left: 10%;
-        width: 100%;
-        height: 0;
-        opacity: 0;
-        pointer-events: none;
-        background-color: $primaryWhtClr;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
-        padding: 6 * $desk + vw;
-        border-radius: 4px;
-        transition: 0.4s;
-
-        .list_label {
-          font-size: 14 * $desk + vw;
+        .menu_label {
+          margin-right: 79.9 * $desk + vw;
+          font-size: 16 * $desk + vw;
           color: $primaryHdrClr;
-          text-align: center;
-          border-bottom: 1px solid rgb(207, 207, 207);
-          padding: 0.2vw 0;
+          display: inline-block;
+          position: relative;
+          transition: 0.25s;
+
+          @media only screen and (max-width: 600px) {
+            font-size: 70 * $desk + vw;
+            margin-right: 0;
+            color: $primaryWhtClr;
+            padding: 1vw 0;
+            border-bottom: 1px solid rgb(218, 218, 218);
+          }
         }
 
-        .list_label:last-child {
-          border-bottom: none;
+        .menu_label:last-child {
+          margin-right: 0;
+
+          @media only screen and (max-width: 600px) {
+            border-bottom: none;
+          }
         }
 
-        .list_label:hover {
+        .menu_label:hover {
           color: $primaryRedClr;
         }
+
+        .menu_label::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: $primaryRedClr;
+          transform-origin: bottom right;
+          transition: transform 0.25s ease-out;
+        }
+        .menu_label:hover::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
       }
 
-      .toggle_height {
-        height: 3.6vw;
-        opacity: 1;
-        transition: 0.4s;
-        pointer-events: auto;
+      .user_dropdown {
+        width: 123 * $desk + vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 604.3 * $desk + vw;
+        cursor: pointer;
+        position: relative;
+
+        @media only screen and (max-width: 600px) {
+          width: 500 * $desk + vw;
+          margin: 40 * $desk + vw 0 0 100 * $desk + vw;
+        }
+
+        .profile {
+          width: 50 * $desk + vw;
+          height: 50 * $desk + vw;
+          position: relative;
+
+          @media only screen and (max-width: 600px) {
+            width: 200 * $desk + vw;
+            height: 200 * $desk + vw;
+          }
+
+          .status {
+            position: absolute;
+            top: -16%;
+            right: 8%;
+            width: 12 * $desk + vw;
+            height: 12 * $desk + vw;
+          }
+        }
+
+        .dropdown_label {
+          font-size: 16 * $desk + vw;
+          color: $primaryWhtClr;
+
+          @media only screen and (max-width: 600px) {
+            font-size: 60 * $desk + vw;
+            color: $primaryWhtClr !important;
+          }
+        }
+
+        .dropdown_arrow {
+          width: 8 * $desk + vw;
+          object-fit: contain;
+          padding-bottom: 6 * $desk + vw;
+          transition: 0.4s;
+
+          @media only screen and (max-width: 600px) {
+            width: 60 * $desk + vw;
+          }
+        }
+
+        .rotate_arrow {
+          transform: rotate(180deg);
+          transition: 0.4s;
+        }
+
+        .dropdown_list {
+          position: absolute;
+          top: 54 * $desk + vw;
+          left: 10%;
+          width: 100%;
+          height: 0;
+          opacity: 0;
+          pointer-events: none;
+          background-color: $primaryWhtClr;
+          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
+          padding: 6 * $desk + vw;
+          border-radius: 4px;
+          transition: 0.4s;
+
+          @media only screen and (max-width: 600px) {
+            top: 200 * $desk + vw;
+          }
+
+          .list_label {
+            font-size: 14 * $desk + vw;
+            color: $primaryHdrClr;
+            text-align: center;
+            border-bottom: 1px solid rgb(207, 207, 207);
+            padding: 0.2vw 0;
+
+            @media only screen and (max-width: 600px) {
+              font-size: 60 * $desk + vw;
+            }
+          }
+
+          .list_label:last-child {
+            border-bottom: none;
+          }
+
+          .list_label:hover {
+            color: $primaryRedClr;
+          }
+        }
+
+        .toggle_height {
+          height: 3.6vw;
+          opacity: 1;
+          transition: 0.4s;
+          pointer-events: auto;
+
+          @media only screen and (max-width: 600px) {
+            height: 11.2vw;
+          }
+        }
       }
     }
   }
-
- 
 }
- .changeColor {
-   filter: brightness(0.5)
- }
+.changeColor {
+  filter: brightness(0.5);
+}

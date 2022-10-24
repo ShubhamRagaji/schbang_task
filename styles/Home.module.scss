@@ -8,6 +8,62 @@ $desk: math.div(100, 1920);
   font-family: poppins;
   overflow-x: hidden;
 
+  .search_wrapper {
+    position: relative;
+    box-shadow: 0px 3px 50px #ff707029;
+    margin-top: 43 * $desk + vw;
+
+    .search_input {
+      width: 100%;
+      border: none;
+      padding: 33 * $desk + vw 220 * $desk + vw 33 * $desk + vw 55 * $desk + vw;
+      outline: none;
+      font-size: 20 * $desk + vw;
+    }
+
+    .search_input::placeholder {
+      color: $primaryHdrClr;
+      font-size: 23 * $desk + vw;
+      opacity: 0.5;
+    }
+
+    .go_btn {
+      padding: 16 * $desk + vw 0;
+      width: 206 * $desk + vw;
+      border-radius: 82px 0 0 0;
+      background-color: $primaryRedClr;
+      font-size: 33 * $desk + vw;
+      color: $primaryWhtClr;
+      border: none;
+      position: absolute;
+      right: 1%;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+
+  .location_wrapper {
+    background-color: $primaryRedClr;
+    width: 374 * $desk + vw;
+    padding: 22 * $desk + vw 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 220 * $desk + vw 0 0 -157 * $desk + vw;
+    border-radius: 0 44px 44px 0;
+
+    .loc_icon {
+      width: 36 * $desk + vw;
+      height: 52 * $desk + vw;
+    }
+
+    .loc_name {
+      color: $primaryWhtClr;
+      font-size: 31 * $desk + vw;
+    }
+  }
+
   .slider {
     width: 100%;
     height: 1274 * $desk + vw;
@@ -15,10 +71,6 @@ $desk: math.div(100, 1920);
     display: flex;
     align-items: center;
     padding: 0 * $desk + vw 0 0 * $desk + vw 157 * $desk + vw;
-
-    // @media only screen and (max-width: 600px){
-    //   display: block;
-    // }
 
     .slider_leftwrapper {
       width: 1406 * $desk + vw;
@@ -41,63 +93,6 @@ $desk: math.div(100, 1920);
           font-size: 64.2 * $desk + vw;
           font-family: poppinsBold;
           line-height: 4vw;
-        }
-
-        .search_wrapper {
-          position: relative;
-          box-shadow: 0px 3px 50px #ff707029;
-          margin-top: 43 * $desk + vw;
-
-          .search_input {
-            width: 100%;
-            border: none;
-            padding: 33 * $desk + vw 220 * $desk + vw 33 * $desk + vw 55 * $desk +
-              vw;
-            outline: none;
-            font-size: 20 * $desk + vw;
-          }
-
-          .search_input::placeholder {
-            color: $primaryHdrClr;
-            font-size: 23 * $desk + vw;
-            opacity: 0.5;
-          }
-
-          .go_btn {
-            padding: 16 * $desk + vw 0;
-            width: 206 * $desk + vw;
-            border-radius: 82px 0 0 0;
-            background-color: $primaryRedClr;
-            font-size: 33 * $desk + vw;
-            color: $primaryWhtClr;
-            border: none;
-            position: absolute;
-            right: 1%;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-          }
-        }
-
-        .location_wrapper {
-          background-color: $primaryRedClr;
-          width: 374 * $desk + vw;
-          padding: 22 * $desk + vw 0;
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-          margin: 220 * $desk + vw 0 0 -157 * $desk + vw;
-          border-radius: 0 44px 44px 0;
-
-          .loc_icon {
-            width: 36 * $desk + vw;
-            height: 52 * $desk + vw;
-          }
-
-          .loc_name {
-            color: $primaryWhtClr;
-            font-size: 31 * $desk + vw;
-          }
         }
 
         .slider_dots {
@@ -123,11 +118,11 @@ $desk: math.div(100, 1920);
         cursor: pointer;
 
         .food_plate2 {
-          margin: 4vw 0 0 4.8vw;
+          margin: 4vw 0 0 0vw;
         }
 
         .food_plate3 {
-          margin: 10vw 0 0 4.4vw;
+          margin: 10vw 0 0 0vw;
         }
       }
 
@@ -514,6 +509,103 @@ $desk: math.div(100, 1920);
 
       @media only screen and (max-width: 600px) {
         display: none;
+      }
+    }
+  }
+}
+
+.home_wrapper {
+  .mob_slider_wrapper {
+    background-color: $primaryRedClr;
+    text-align: center;
+    padding-bottom: 4vw;
+    background-image: url(../assets//dots.png);
+    background-size: cover;
+
+    .mob_search {
+      position: fixed;
+      top: 12vw;
+      left: 0%;
+      width: 100%;
+      background-color: #00000075;
+      height: 14vw;
+      z-index: 6;
+      display: flex;
+      justify-content: center;
+
+      .search_wrapper {
+        width: 80%;
+
+        .search_input {
+          font-size: 60 * $desk + vw;
+          border-radius: 6px;
+          padding: 60 * $desk + vw;
+        }
+
+        .search_input::placeholder {
+          font-size: 64 * $desk + vw;
+        }
+
+        .go_btn {
+          padding: 40 * $desk + vw;
+          width: 280 * $desk + vw;
+          border-radius: 82px 10px 10px 0;
+          font-size: 64 * $desk + vw;
+          top: 40%;
+        }
+      }
+    }
+
+    .slider {
+      background: none;
+    }
+
+    .mob_slider {
+      margin-top: 12vw;
+
+      .slide1,
+      .slide2,
+      .slide3 {
+        .slider_sublabel,
+        .slider_sublabel3 {
+          color: $primaryWhtClr;
+          margin-top: -4vw;
+        }
+
+        .slider_sublabel3 {
+          margin-top: 10.8vw;
+        }
+      }
+
+      .slide1 {
+        .plate1 {
+          margin-left: -8vw;
+          margin-top: -4vw;
+        }
+      }
+
+      .slide3 {
+        .plate3 {
+          margin-top: 16vw;
+        }
+      }
+    }
+
+    .location_wrapper {
+      background-color: $primaryLightRedClr;
+      width: 600 * $desk + vw;
+      position: absolute;
+      top: 116vw;
+
+      .loc_icon {
+        width: 36 * $desk + vw;
+        height: 52 * $desk + vw;
+      }
+
+      .loc_name {
+        color: $primaryHdrClr;
+        font-size: 60 * $desk + vw;
+        font-weight: 600;
       }
     }
   }
