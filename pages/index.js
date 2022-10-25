@@ -29,7 +29,7 @@ import { useInView } from "react-intersection-observer";
 export default function Home() {
   const sliderRef = useRef();
   const sloganRef = useRef();
-  
+
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
@@ -63,6 +63,8 @@ export default function Home() {
     autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    pauseOnHover: false,
+    pauseOnFocus: false,
     beforeChange: (current, next) => {
       sliderRef.current.slickGoTo(next);
     },
