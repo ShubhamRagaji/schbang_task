@@ -25,7 +25,6 @@ export default function Navbar() {
   });
 
   const [dropdownList, setdropdownList] = useState(false);
-  console.log(hamMenu);
   useEffect(() => {
     setWindowSize({
       width: window.innerWidth,
@@ -49,6 +48,7 @@ export default function Navbar() {
       document.getElementById("hamMenu").classList.remove("fadeInLeft");
       document.getElementById("hamMenu").style.opacity = "0";
       document.getElementById("mobSearch").style.zIndex = "6";
+      document.getElementById("mobSearch").style.transition = "1s";
       document.getElementById("hamMenu").style.pointerEvents = "none";
       document.getElementById("hamMenu").classList.add("fadeOutLeft");
       document.getElementById("menu").style.marginLeft = "0";
@@ -76,6 +76,7 @@ export default function Navbar() {
                 setdropdownList={setdropdownList}
                 dropdownList={dropdownList}
                 toggleMenu={toggleMenu}
+                windowSize={windowSize}
               />
             </div>
           </div>
@@ -86,6 +87,7 @@ export default function Navbar() {
           <NavbarContent
             setdropdownList={setdropdownList}
             dropdownList={dropdownList}
+            windowSize={windowSize}
           />
         </div>
       )}
@@ -98,16 +100,19 @@ export const NavbarContent = ({
   setdropdownList,
   sethamMenu,
   toggleMenu,
+  windowSize,
 }) => {
   return (
-    <div
-      className={styles.navbar_content}
-      onClick={() => {
-        sethamMenu(false);
-        toggleMenu();
-      }}
-    >
-      <div className={styles.links}>
+    <div className={styles.navbar_content}>
+      <div
+        className={styles.links}
+        onClick={() => {
+          if (windowSize.width <= 600) {
+            sethamMenu(false);
+            toggleMenu();
+          }
+        }}
+      >
         <Link href="">
           <a className={styles.menu_label}>Menu One</a>
         </Link>
