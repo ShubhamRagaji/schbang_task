@@ -109,8 +109,8 @@ $desk: math.div(100, 1920);
 
       .main_slider {
         position: relative;
-        left: -94%;
-        top: -10%;
+        left: -80%;
+        top: 0%;
         z-index: 1;
         width: 900 * $desk + vw;
         height: 914 * $desk + vw;
@@ -118,7 +118,7 @@ $desk: math.div(100, 1920);
         cursor: pointer;
 
         .food_plate2 {
-          margin: -4vw 0 0 0vw;
+          margin: -2vw 0 0 0vw;
         }
 
         .food_plate3 {
@@ -241,11 +241,10 @@ $desk: math.div(100, 1920);
         align-items: center;
 
         .image_info_wrapper {
-
           @media only screen and (max-width: 600px) {
             display: flex;
             flex-direction: column-reverse;
-            }
+          }
 
           .wrappers {
             display: flex;
@@ -315,7 +314,6 @@ $desk: math.div(100, 1920);
 
                 @media only screen and (max-width: 600px) {
                   display: none;
-                   
                 }
               }
             }
@@ -390,7 +388,7 @@ $desk: math.div(100, 1920);
         @media only screen and (max-width: 600px) {
           width: 100%;
           height: 1400 * $desk + vw;
-          margin: 80*$desk+vw 0 0 0 ;
+          margin: 80 * $desk + vw 0 0 0;
           display: inline-block;
         }
 
@@ -568,11 +566,11 @@ $desk: math.div(100, 1920);
           font-size: 64 * $desk + vw;
           top: 40%;
 
-            @media only screen and (max-width: 600px) {
-              top: 42%;
-                width: 320 * $desk + vw;
-                padding-left: 4.2vw;
-              }
+          @media only screen and (max-width: 600px) {
+            top: 42%;
+            width: 320 * $desk + vw;
+            padding-left: 4.2vw;
+          }
         }
       }
     }
@@ -588,29 +586,33 @@ $desk: math.div(100, 1920);
       .slide2,
       .slide3 {
         .slider_sublabel,
+        .slider_sublabel2,
         .slider_sublabel3 {
           color: $primaryWhtClr;
+          margin-top: 8vw;
 
           @media only screen and (max-width: 600px) {
             font-size: 80 * $desk + vw;
           }
         }
 
-        .slider_sublabel3 {
-          margin-top: 14vw;
+        .slider_sublabel2{
+          margin-top: 10vw;
         }
       }
 
       .slide1 {
         .plate1 {
-          margin-left: -8vw;
-          margin-top: -4vw;
-        }
-      }
-
-      .slide3 {
-        .plate3 {
           margin-top: 16vw;
+        }
+
+      
+      }
+      .slide2{
+        margin-top: 4vw;
+
+        .plate2 {
+          margin-top: 10vw;
         }
       }
     }
@@ -619,7 +621,7 @@ $desk: math.div(100, 1920);
       background-color: $primaryLightRedClr;
       width: 600 * $desk + vw;
       position: absolute;
-      top: 120vw;
+      top: 123.4vw;
 
       .loc_icon {
         width: 36 * $desk + vw;

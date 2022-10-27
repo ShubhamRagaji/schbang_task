@@ -220,23 +220,23 @@ export default function Home() {
               <Slider {...settings} ref={sloganRef}>
                 <Image
                   src={foodPlate}
-                  width={922}
-                  height={1145}
+                  width={853}
+                  height={900}
                   alt="foodPlate"
                 />
                 <div className={styles.food_plate2}>
                   <Image
                     src={foodPlate2}
-                    width={922}
-                    height={1145}
+                    width={853}
+                    height={919}
                     alt="foodPlate"
                   />
                 </div>
                 <div className={styles.food_plate3}>
                   <Image
                     src={foodPlate3}
-                    width={922}
-                    height={1145}
+                    width={853}
+                    height={919}
                     alt="foodPlate"
                   />
                 </div>
@@ -282,8 +282,8 @@ export default function Home() {
                 <div className={styles.plate1}>
                   <Image
                     src={foodPlate}
-                    width={922}
-                    height={1145}
+                    width={853}
+                    height={919}
                     alt="foodPlate"
                   />
                 </div>
@@ -292,26 +292,28 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.slide2}>
-                <Image
-                  src={foodPlate2}
-                  width={500}
-                  height={650}
-                  alt="foodPlate"
-                />
-                <p className={styles.slider_sublabel}>
-                  We Are Always Here To Serve You.
-                </p>
+                <div className={styles.plate2}>
+                  <Image
+                    src={foodPlate2}
+                    width={853}
+                    height={919}
+                    alt="foodPlate"
+                  />
+                  <p className={styles.slider_sublabel2}>
+                    We Are Always Here To Serve You.
+                  </p>
+                </div>
               </div>
-              <div className={styles.slide3}>
-                <div className={styles.plate3}>
+              <div className={styles.slide2}>
+                <div className={styles.plate2}>
                   <Image
                     src={foodPlate3}
-                    width={600}
-                    height={600}
+                    width={853}
+                    height={919}
                     alt="foodPlate"
                   />
                 </div>
-                <p className={styles.slider_sublabel3}>
+                <p className={styles.slider_sublabel2}>
                   Hundreds Of Flavors Under One Roof.
                 </p>
               </div>
