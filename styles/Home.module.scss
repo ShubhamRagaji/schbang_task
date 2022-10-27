@@ -109,7 +109,7 @@ $desk: math.div(100, 1920);
 
       .main_slider {
         position: relative;
-        left: -84%;
+        left: -94%;
         top: -10%;
         z-index: 1;
         width: 900 * $desk + vw;
@@ -118,11 +118,11 @@ $desk: math.div(100, 1920);
         cursor: pointer;
 
         .food_plate2 {
-          margin: 4vw 0 0 0vw;
+          margin: -4vw 0 0 0vw;
         }
 
         .food_plate3 {
-          margin: 10vw 0 0 0vw;
+          margin: -3vw 0 0 0vw;
         }
       }
 

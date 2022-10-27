@@ -57,7 +57,7 @@ export default function Home() {
   var settings = {
     dots: false,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     arrows: false,
     speed: 1000,
     autoplaySpeed: 5000,
@@ -227,16 +227,16 @@ export default function Home() {
                 <div className={styles.food_plate2}>
                   <Image
                     src={foodPlate2}
-                    width={650}
-                    height={850}
+                    width={922}
+                    height={1145}
                     alt="foodPlate"
                   />
                 </div>
                 <div className={styles.food_plate3}>
                   <Image
                     src={foodPlate3}
-                    width={660}
-                    height={660}
+                    width={922}
+                    height={1145}
                     alt="foodPlate"
                   />
                 </div>
